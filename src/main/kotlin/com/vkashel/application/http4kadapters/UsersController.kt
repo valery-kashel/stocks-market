@@ -13,6 +13,7 @@ import org.http4k.core.Response
 import org.http4k.core.Status
 import org.http4k.core.with
 import org.http4k.format.Jackson.auto
+import org.http4k.routing.RoutingHttpHandler
 import org.http4k.routing.bind
 import org.http4k.routing.routes
 
@@ -24,7 +25,7 @@ class UsersController(
     private val passwordEncoder: PasswordEncoder,
 ) : UsersPort, Controller {
 
-    override fun contractRoutes(): HttpHandler = routes(
+    override fun contractRoutes(): RoutingHttpHandler = routes(
         "users" bind Method.POST to ::createNewUserFun
     )
 

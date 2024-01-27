@@ -1,5 +1,9 @@
 package com.vkashel
 
-fun main(){
-    println("amazing things will be done soon...")
+import com.vkashel.infrastructure.configuration.ServerConfiguration
+import com.vkashel.infrastructure.configuration.http4k.Http4KServerConfiguration
+
+fun main() {
+    val configuration: ServerConfiguration = Http4KServerConfiguration()
+    configuration.start()
 }

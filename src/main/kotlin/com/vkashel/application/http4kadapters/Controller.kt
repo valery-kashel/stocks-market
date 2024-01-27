@@ -1,7 +1,7 @@
 package com.vkashel.application.http4kadapters
 
-import org.http4k.core.HttpHandler
+import org.http4k.routing.RoutingHttpHandler
 
 interface Controller {
-    fun contractRoutes() : HttpHandler
+    fun contractRoutes() : RoutingHttpHandler
 }
