@@ -12,11 +12,12 @@ class UserService(
         username: String,
         password: String,
     ): User {
-        val user = User.createNew(
-            email = email,
-            username = username,
-            password = password,
-        )
+        val user =
+            User.createNew(
+                email = email,
+                username = username,
+                password = password,
+            )
         return usersRepository.save(user)
     }
 }

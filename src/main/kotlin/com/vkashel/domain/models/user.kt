@@ -12,12 +12,13 @@ data class User(
         fun createNew(
             email: String,
             username: String,
-            password: String
-        ): User = User(
-            id = UUID.randomUUID(),
-            email = email,
-            username = username,
-            password = password,
-        )
+            password: String,
+        ): User =
+            User(
+                id = UUID.randomUUID(),
+                email = email,
+                username = username,
+                password = password,
+            )
     }
 }

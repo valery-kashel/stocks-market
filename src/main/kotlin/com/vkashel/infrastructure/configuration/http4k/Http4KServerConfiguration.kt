@@ -17,23 +17,27 @@ class Http4KServerConfiguration : ServerConfiguration {
 
         val usersRepository = UsersInMemoryRepository()
 
-        val userService = UserService(
-            usersRepository = usersRepository
-        )
+        val userService =
+            UserService(
+                usersRepository = usersRepository,
+            )
 
-        val usersController = UsersController(
-            userService = userService,
-            passwordEncoder = passwordEncoder
-        )
+        val usersController =
+            UsersController(
+                userService = userService,
+                passwordEncoder = passwordEncoder,
+            )
 
-        val routes = routes(
-            usersController.contractRoutes(),
-        )
+        val routes =
+            routes(
+                usersController.contractRoutes(),
+            )
 
-        val server = DebuggingFilters.PrintRequest()
-            .then(routes)
-            .asServer(Undertow())
-            .start()
+        val server =
+            DebuggingFilters.PrintRequest()
+                .then(routes)
+                .asServer(Undertow())
+                .start()
 
         println("server started on: ${server.port()}")
     }

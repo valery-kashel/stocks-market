@@ -6,7 +6,6 @@ import com.vkashel.application.responses.CreateNewUserResponse
 import com.vkashel.domain.services.UserService
 import com.vkashel.utils.passwordencoder.PasswordEncoder
 import org.http4k.core.Body
-import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Response
@@ -24,19 +23,20 @@ class UsersController(
     private val userService: UserService,
     private val passwordEncoder: PasswordEncoder,
 ) : UsersPort, Controller {
-
-    override fun contractRoutes(): RoutingHttpHandler = routes(
-        "users" bind Method.POST to ::createNewUserFun
-    )
+    override fun contractRoutes(): RoutingHttpHandler =
+        routes(
+            "users" bind Method.POST to ::createNewUserFun,
+        )
 
     override fun createNewUser(request: CreateNewUserRequest): CreateNewUserResponse {
-        val createdUser = with(request) {
-            userService.createUser(
-                email =email,
-                username = username,
-                password = passwordEncoder.encode(password),
-            )
-        }
+        val createdUser =
+            with(request) {
+                userService.createUser(
+                    email = email,
+                    username = username,
+                    password = passwordEncoder.encode(password),
+                )
+            }
         return CreateNewUserResponse(
             id = createdUser.id.toString(),
             email = createdUser.email,
