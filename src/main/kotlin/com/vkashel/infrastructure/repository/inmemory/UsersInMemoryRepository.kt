@@ -1,4 +1,4 @@
-package com.vkashel.infrastructure.repository
+package com.vkashel.infrastructure.repository.inmemory
 
 import com.vkashel.domain.models.User
 import com.vkashel.domain.ports.UsersRepository
