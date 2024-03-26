@@ -1,4 +1,4 @@
-package com.vkashel.utils.passwordencoder
+package com.vkashel.utils.auth.passwordencoder
 
 import kotlin.io.encoding.Base64
 

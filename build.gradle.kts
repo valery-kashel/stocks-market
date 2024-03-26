@@ -12,6 +12,7 @@ repositories {
 val exposedVersion = "0.47.0"
 val postgresql = "42.7.1"
 val flyway = "10.8.1"
+val oauthJWT = "4.4.0"
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -27,6 +28,15 @@ dependencies {
     implementation("org.postgresql:postgresql:$postgresql")
     implementation("org.flywaydb:flyway-database-postgresql:$flyway")
     implementation("org.flywaydb:flyway-core:$flyway")
+    implementation("io.jsonwebtoken:jjwt-api:0.12.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.5")
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 tasks.test {

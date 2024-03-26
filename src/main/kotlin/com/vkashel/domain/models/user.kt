@@ -3,8 +3,9 @@ package com.vkashel.domain.models
 import java.util.UUID
 
 data class User(
-    val id: UUID,
+    val id: String,
     val email: String,
+    val role: Roles,
     val username: String,
     val password: String,
 ) {
@@ -13,12 +14,19 @@ data class User(
             email: String,
             username: String,
             password: String,
+            role: Roles = Roles.USER,
         ): User =
             User(
-                id = UUID.randomUUID(),
+                id = UUID.randomUUID().toString(),
                 email = email,
                 username = username,
                 password = password,
+                role = role,
             )
     }
+}
+
+enum class Roles {
+    ADMIN,
+    USER,
 }

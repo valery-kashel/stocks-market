@@ -4,7 +4,7 @@ import com.vkashel.application.ports.UsersPort
 import com.vkashel.application.requests.CreateNewUserRequest
 import com.vkashel.application.responses.CreateNewUserResponse
 import com.vkashel.domain.services.UserService
-import com.vkashel.utils.passwordencoder.PasswordEncoder
+import com.vkashel.utils.auth.passwordencoder.PasswordEncoder
 import org.http4k.core.Body
 import org.http4k.core.Method
 import org.http4k.core.Request

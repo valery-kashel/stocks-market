@@ -4,7 +4,7 @@ import com.vkashel.application.http4kadapters.UsersController
 import com.vkashel.domain.services.UserService
 import com.vkashel.infrastructure.configuration.ServerConfiguration
 import com.vkashel.infrastructure.repository.database.DatabaseRepositories
-import com.vkashel.utils.passwordencoder.Base64PasswordEncoder
+import com.vkashel.utils.auth.passwordencoder.DefaultPasswordEncoder
 import org.http4k.core.then
 import org.http4k.filter.DebuggingFilters
 import org.http4k.routing.routes
@@ -13,7 +13,7 @@ import org.http4k.server.asServer
 
 class Http4KServerConfiguration : ServerConfiguration {
     override fun start() {
-        val passwordEncoder = Base64PasswordEncoder()
+        val passwordEncoder = DefaultPasswordEncoder()
         val repositories = DatabaseRepositories()
 
         val usersRepository = repositories.usersRepository

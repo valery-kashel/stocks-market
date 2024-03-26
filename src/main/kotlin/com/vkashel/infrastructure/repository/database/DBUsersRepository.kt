@@ -15,6 +15,7 @@ class DBUsersRepository : UsersRepository {
                 it[email] = user.email
                 it[password] = user.password
                 it[username] = user.username
+                it[role] = user.role.name
                 it[createdTime] = ZonedDateTime.now().toOffsetDateTime()
                 it[updatedTime] = ZonedDateTime.now().toOffsetDateTime()
             }
